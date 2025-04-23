@@ -3,15 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>YouTube Thumbnail Downloader</title>
+  <title>YouTube Thumbnail Downloader | HD Image Grabber Tool</title>
+  <meta name="description" content="Free YouTube Thumbnail Downloader. Paste a YouTube video link to download its thumbnail in full HD quality instantly. No signup needed!" />
+  <link rel="icon" type="image/png" href="https://www.youtube.com/s/desktop/7e9f3dfb/img/favicon_32.png" />
+
   <script src="https://cdn.tailwindcss.com"></script>
-  <meta name="description" content="Download any YouTube video thumbnail in HD quality with our free and easy-to-use tool. No sign-up, no hassle!" />
-  <link rel="icon" href="https://www.youtube.com/s/desktop/7e9f3dfb/img/favicon.ico">
   <script>
     tailwind.config = {
       darkMode: 'class',
     }
   </script>
+
   <style>
     body::before {
       content: "";
@@ -21,7 +23,7 @@
       background-size: 400% 400%;
       z-index: -1;
       animation: gradientFlow 15s ease infinite;
-      opacity: 0.2;
+      opacity: 0.25;
     }
 
     @keyframes gradientFlow {
@@ -33,7 +35,7 @@
     @keyframes fade-in-up {
       0% {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(40px);
       }
       100% {
         opacity: 1;
@@ -42,56 +44,61 @@
     }
 
     .animate-fade-in-up {
-      animation: fade-in-up 0.6s ease-out both;
+      animation: fade-in-up 0.8s ease-out both;
     }
   </style>
 </head>
 <body class="dark:bg-black bg-white text-black dark:text-white min-h-screen flex flex-col items-center justify-center p-4 transition duration-300">
 
   <!-- Theme Toggle -->
-  <div class="absolute top-5 right-5">
-    <button onclick="toggleTheme()" class="px-4 py-2 bg-gray-800 dark:bg-white text-white dark:text-black rounded-full text-sm transition hover:shadow-lg">
+  <div class="absolute top-5 right-5 z-50">
+    <button onclick="toggleTheme()" class="px-4 py-2 bg-gray-900 dark:bg-white text-white dark:text-black rounded-full text-sm transition hover:shadow-lg">
       🌗 Toggle Theme
     </button>
   </div>
 
-  <!-- Header -->
-  <header class="text-center mb-8 animate-fade-in-up">
-    <h1 class="text-4xl md:text-5xl font-extrabold text-indigo-700 dark:text-white mb-2">🎯 YouTube Thumbnail Downloader</h1>
-    <p class="text-gray-700 dark:text-gray-300 max-w-xl mx-auto text-lg">
-      Instantly extract high-quality thumbnails from any YouTube video. Just paste the video link and download the thumbnail in seconds!
-    </p>
+  <!-- Header Section -->
+  <header class="text-center max-w-3xl mt-16 animate-fade-in-up">
+    <h1 class="text-5xl font-extrabold text-indigo-700 dark:text-white leading-tight">Download Stunning YouTube Thumbnails</h1>
+    <p class="mt-4 text-lg text-gray-700 dark:text-gray-300">Paste a YouTube video URL and grab its high-resolution thumbnail instantly – 100% free and fast.</p>
   </header>
 
-  <!-- Main Card -->
-  <main class="bg-white dark:bg-gray-800 shadow-2xl rounded-3xl p-8 max-w-xl w-full text-center border border-indigo-100 dark:border-gray-700 animate-fade-in-up backdrop-blur-md bg-opacity-90 dark:bg-opacity-80">
+  <!-- Main Form -->
+  <main class="mt-10 bg-white dark:bg-gray-800 shadow-2xl rounded-3xl p-10 max-w-2xl w-full text-center border border-indigo-100 dark:border-gray-700 animate-fade-in-up backdrop-blur-md bg-opacity-90 dark:bg-opacity-80">
     <input type="text" id="videoUrl"
-           class="w-full px-4 py-3 border-2 border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-black dark:text-white rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm"
+           class="w-full px-5 py-4 border-2 border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-black dark:text-white rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 text-base"
            placeholder="Paste YouTube video URL here (e.g. https://youtu.be/dQw4w9WgXcQ)" />
 
     <button onclick="showThumbnail()"
-            class="mt-4 w-full bg-indigo-600 text-white py-3 rounded-xl text-sm font-semibold hover:bg-indigo-700 transition">
-      🔍 Get Thumbnail
+            class="mt-5 w-full bg-indigo-600 text-white py-3 rounded-xl text-base font-semibold hover:bg-indigo-700 transition">
+      🔍 Fetch Thumbnail
     </button>
 
-    <div id="result" class="mt-6 hidden">
-      <h2 class="text-xl font-semibold text-gray-700 dark:text-gray-200 mb-4">Here’s your thumbnail 👇</h2>
-      <img id="thumbnail" src="" alt="YouTube Thumbnail" class="rounded-xl shadow-md mx-auto mb-4 max-w-full border border-gray-300 dark:border-gray-600">
+    <div id="result" class="mt-8 hidden">
+      <h2 class="text-2xl font-bold text-gray-700 dark:text-gray-200 mb-4">Preview & Download</h2>
+      <img id="thumbnail" src="" alt="YouTube Thumbnail" class="rounded-2xl shadow-lg mx-auto mb-4 max-w-full border border-gray-300 dark:border-gray-600 transition-all duration-500">
       <a id="download" href="#" download="youtube-thumbnail.jpg"
-         class="inline-block bg-green-500 text-white px-6 py-2 rounded-xl text-sm hover:bg-green-600 transition">
+         class="inline-block bg-green-500 text-white px-6 py-3 rounded-xl text-sm hover:bg-green-600 transition">
         ⬇️ Download Thumbnail
       </a>
     </div>
   </main>
 
+  <!-- Extra Content / FAQ Section -->
+  <section class="max-w-4xl text-center mt-20 px-6 animate-fade-in-up">
+    <h2 class="text-3xl font-semibold text-indigo-700 dark:text-white mb-4">Why use this tool?</h2>
+    <ul class="text-gray-700 dark:text-gray-300 text-lg space-y-3">
+      <li>✅ Extract HD thumbnails from any YouTube video.</li>
+      <li>⚡ Lightning fast. No ads. No login required.</li>
+      <li>📱 Mobile-friendly and responsive design.</li>
+      <li>🎨 Supports both Light & Dark modes with smooth UI.</li>
+    </ul>
+  </section>
+
   <!-- Footer -->
-  <footer class="mt-12 text-center text-sm text-gray-400 dark:text-gray-500 max-w-lg animate-fade-in-up">
-    <p>
-      This tool is 100% free and requires no sign-in. It works with both long and short YouTube links.
-      <br>
-      Need help or want to suggest features? <a href="#" class="text-indigo-600 hover:underline">Contact us</a>.
-    </p>
-    <p class="mt-4">Made with ❤️ for creators, marketers & meme lovers.</p>
+  <footer class="mt-20 mb-8 text-center text-sm text-gray-400 dark:text-gray-500 max-w-lg animate-fade-in-up">
+    <p>Built with ❤️ by creators, for creators.</p>
+    <p class="mt-2">Want to suggest a feature or collaborate? <a href="#" class="text-indigo-500 hover:underline">Let’s connect</a>.</p>
   </footer>
 
   <!-- Scripts -->
